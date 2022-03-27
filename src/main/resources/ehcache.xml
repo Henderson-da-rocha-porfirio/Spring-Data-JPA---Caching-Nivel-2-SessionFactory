@@ -1,0 +1,10 @@
+<ehcache>
+    <diskStore path="java.io.tmpdir"/> // Aponta para um diretório temporário
+
+    <defaultCache maxElementsInMemory="100" eternal="false" timeToIdleSeconds="5" timeToLiveSeconds="10" overflowToDisk="true"/>
+                // maxElementsInMemory= máximo de elementos em memória.
+                // eternal= Significa que o objeto não deve ficar para sempre no Cache. Por isso "false".
+                // timeToIdleSeconds= Tempo ocioso ou "se o objeto não for acessado em" do Objeto. No caso do exemplo, em 5 segundos, será destruído ou removido.
+                // timeToLiveSeconds= Tempo de atividade no Cache.
+                // overflowToDisk= exibir no cache tem que está "true". Daí ela exibe ao disco ou armazena no disco o ehcache.xml
+</ehcache>
