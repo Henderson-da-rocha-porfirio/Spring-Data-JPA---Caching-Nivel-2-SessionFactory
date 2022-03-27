@@ -42,3 +42,15 @@
 ##### iii. Jboss Tree cache
 ##### iv. OS cache
 ##### v. Tangosol Cache
+### 3. Usando EH Cache
+#### a. Ela é a Framework Caching que é mais rápida e leve. E é mais usada em Aplicacões do JAVA EE que usa o Hibernate.
+#### b. Nesse caso, EH Cache é o provedor (provider) Nível 2 do hibernate.
+#### c. É este provedor que armazenará o Cache no nível SessioFactory.
+#### d. Ele suporta tanto o Caching em Memória RAM quanto em Disco ( dispõe ou remove em série no disco ).
+#### e. Ele é bem poderoso porque nos permite configurar o "Timeout" para um objeto em particular no Cache. Ou seja, o ciclo de vida total de um objeto no Cache e etc. usando XML.
+#### f. EH Cache cria arquivos XML.
+#### g. Passos para usá-lo:
+##### i. Adicionar a dependência no Maven. Colocando no pom.xml que trará os arquivos jar.
+##### ii. Habilitar o Caching para a Aplicação no application.properties.
+##### iii. Criar um ehcache.xml. É onde será especificado o timeout, o local para armazenar os objetos e etc, ou seja, o local temporário, onde o objeto deveria guardar os Caches. E ele deverá ser marcado ou anotado nas entidades.
+##### iv. Test Caching: tanto para o Nível 1 quanto para o Nível 2.
