@@ -30,3 +30,8 @@
 ##### a. Deve ser usado apenas quando estamos tratando com transações XA OU transações distribuídas. OU seja, mais de um Database.
 ##### b. Uma mudança em um Cache que poderia ser tanto um Commit ou um Rollback acontecerá através dos Databases e estas mudanças impactarão o Cache.
 ##### c. Isso é a razão de utilizarmos a anotação @Transactional.
+|   :---:  |   accId   | nome | balanco | :---: |
+|   :---:   |   :---:     |   :---:     | :---: | :---: |
+|   update ->   | 1  | João | 1000 | -500 |
+|   update ->   |2	 | Maria | 200  | +500 |
+|   :---:   |:---: | :---: | :---:  | :---: |
