@@ -183,7 +183,7 @@ class ProdutosdataApplicationTests {    // Junit testes
     }*/
 
     @Test
-    @Transactional                                              // Teste nível 1 - usando " evict " ( desalojar = remover do armazenamento de Cache )
+    @Transactional                                              // Teste nível 2 - usando " evict " ( desalojar = remover do armazenamento de Cache )
     public void testCaching() {                                 // É necessário usar EntityManager. Esse é o equivalente, da Session do Hibernate, do JPA.
         Session session = entityManager.unwrap(Session.class);  // Para acessar a Session do Hibernate. "unwrap"(desempacota). Session é o objeto que queremos "desempacotar"(unwrap) do heap.
         Produto produto = repository.findById(1).get();         //  Corre (RUN) a primeira Query (consulta). * Observar: Variável Local (Objeto existente) = Produto.
@@ -192,7 +192,7 @@ class ProdutosdataApplicationTests {    // Junit testes
 
         session.evict(produto);                                 // Desaloja = remove do armazenamento. O objeto "produto" é passado como parâmetro e removerá o produto que está no Nível 1 do Cache.
                                                                 // Se o método evict for comentado, o cache volta a funcionar.
-        repository.findById(1).get();                           // roda a segunda query ( consulta ) mais uma vez. No console aparecerá as duas "Select" "queries", ou seja, buscou diretamente do database.
+        repository.findById(1).get();                           // roda a segunda query ( consulta ) mais uma vez. No console aparecerá apenas um "Select" "queries". Diferente do Nível 1, que apareceriam 2 select.
 
     }
 }
