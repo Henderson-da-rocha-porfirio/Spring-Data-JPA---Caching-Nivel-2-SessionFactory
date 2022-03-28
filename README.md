@@ -28,7 +28,7 @@
 ##### i. Adicionar a dependência no Maven. Colocando no pom.xml que trará os arquivos jar.
 ##### ii. Habilitar o Caching para a Aplicação no application.properties.
 ##### iii. Criar um ehcache.xml. É onde será especificado o timeout, o local para armazenar os objetos e etc, ou seja, o local temporário, onde o objeto deveria guardar os Caches. E ele deverá ser marcado ou anotado nas entidades.
-##### iv. Test Caching: tanto para o Nível 1 quanto para o Nível 2.
+##### iv. Test Caching: tanto para o Nível 1 quanto para o Nível 2: utilizar a anotação @Cache na entidade Pai.
 ### 3. Cache Concurrency Strategy
 #### READ_ONLY
 ##### a. Só deve ser escolhido somente quando as entidades na Aplicacao nunca mudarem.

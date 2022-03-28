@@ -1,13 +1,18 @@
 package com.tuyo.produtodata.produtosdata.entities;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 @Entity // this is mandatory annotation the next one at table:
 @Table // Optional - só é necessária apenas se o nome da tabela no database for diferente do da classe.
-public class Produto {
+@Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
+public class Produto implements Serializable { // Assim que ele comece a escrever os objetos no disco, os objetos deveriam implemtar Serializable.
     private static final long serialVersionUID = 1L;
 
     @Id // this is mandatory = anotação necessária.
