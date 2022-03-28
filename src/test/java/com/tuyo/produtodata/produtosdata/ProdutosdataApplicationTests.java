@@ -182,7 +182,7 @@ class ProdutosdataApplicationTests {    // Junit testes
                                         // Se removermos @Transactional, e rodarmos o teste, veremos que o nível 1 - Session do Hibernate não funcionará. Ele estará buscando diretamente do database.
     }*/
 
-    @Test
+    @Test                                                       // Usando EhCache.
     @Transactional                                              // Teste nível 2 - usando " evict " ( desalojar = remover do armazenamento de Cache )
     public void testCaching() {                                 // É necessário usar EntityManager. Esse é o equivalente, da Session do Hibernate, do JPA.
         Session session = entityManager.unwrap(Session.class);  // Para acessar a Session do Hibernate. "unwrap"(desempacota). Session é o objeto que queremos "desempacotar"(unwrap) do heap.
